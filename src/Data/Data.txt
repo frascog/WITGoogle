@@ -16,3 +16,21 @@ Karina Assiter
     OfficeNumber 141
     Phone 617-989-4835 
     Email oudshoornm@wit.edu
+Leonidas Deligiannidis
+    Title Professor
+    Deparment Computer Science and Computer Networking
+    Degree PhD Tufts University
+    Degree BS Northeastern University
+    OfficeLocation Dobbs
+    OfficeNumber 145
+    Phone 617-989-4142 
+    Email deligiannidisl@wit.edu
+Nate Derbinsky
+    Title Assistant Professor
+    Deparment Computer Science and Computer Networking
+    Degree PhD University of Michigan
+    Degree BS North Carolina State University
+    OfficeLocation Dobbs
+    OfficeNumber 140
+    Phone 617-989-4287 
+    Email derbinskyn@wit.edu
