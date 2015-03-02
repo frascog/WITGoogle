@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class Staff {
     
     private final String firstName;
-    private final String LastName;
+    private final String lastName;
     private HashMap<String,String> degrees;
     private String email;
     private String phone;
@@ -25,17 +25,17 @@ public class Staff {
 
     public Staff(String firstName, String LastName) {
         this.firstName = firstName;
-        this.LastName = LastName;
+        this.lastName = LastName;
     }
 
-    public HashMap<String, String> getDegrees() {
-        return degrees;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setDegrees(HashMap<String, String> degrees) {
-        this.degrees = degrees;
+    public String getLastName() {
+        return lastName;
     }
-
+    
     public String getEmail() {
         return email;
     }
@@ -83,5 +83,17 @@ public class Staff {
     public void setOfficeNumber(String officeNumber) {
         this.officeNumber = officeNumber;
     }
-    
+
+    public void addDegree(String degree) {
+        
+    }
+
+    @Override
+    public String toString() {
+        String measage = this.firstName + " " + this.lastName + "\n";
+        measage += this.title + "\n";
+        return measage;
+    }
 }
+    
+    

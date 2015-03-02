@@ -1,0 +1,18 @@
+Michael Oudshoorn
+    Title Department Chair
+    Deparment Computer Science and Computer Networking
+    Degree PhD The University of Adelaide
+    Degree BS The University of Adelaide
+    OfficeLocation Dobbs
+    OfficeNumber 142
+    Phone  617-989-4275
+    Email oudshoornm@wit.edu
+Karina Assiter
+    Title Associate Professor
+    Deparment Computer Science and Computer Networking
+    Degree PhD Tufts University
+    Degree BA Mills College
+    OfficeLocation Dobbs
+    OfficeNumber 141
+    Phone 617-989-4835 
+    Email oudshoornm@wit.edu

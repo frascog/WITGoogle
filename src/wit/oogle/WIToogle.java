@@ -5,19 +5,24 @@
  */
 package wit.oogle;
 
+import DataStructure.InvertedFile;
+import SupportClasses.Loader;
 import java.applet.Applet;
 
 /**
  *
  * @author Greg
  */
-public class WIToogle extends Applet{
+public class WIToogle extends Applet {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        InvertedFile invertedFile = new InvertedFile();
+        new Loader();
+
     }
-    
+
+
 }
