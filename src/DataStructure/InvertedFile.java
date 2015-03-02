@@ -12,12 +12,12 @@ package DataStructure;
 public class InvertedFile<D,W> implements InvertedFileInterface<D, W>{
 
     @Override
-    public boolean add(D document, W word) {
+    public void add(D document, W word) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean remove(D document, W word) {
+    public void remove(D document, W word) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
