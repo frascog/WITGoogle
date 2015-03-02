@@ -13,7 +13,7 @@ public class Node<D,W> {
 
     private static final int T = 4;
     private int numWords;
-    private W[] words;
+    private W[] words;//keys
     private D[] documents;
     private Node[] childNodes;
     private boolean leafNode;
