@@ -11,6 +11,9 @@ package DataStructure;
  */
 public interface InvertedFileInterface<D,W> {
     
+    public final int T = 4;
+    public Node rootNode = null;
+    
     public void add(D document, W word);
     public void remove(D document, W word);
     public int capasity();
@@ -18,7 +21,7 @@ public interface InvertedFileInterface<D,W> {
     public boolean isEmpty();
     public boolean containsWord(W word);
     public boolean contains(D document,W word);
-    public D[] search(W word);
+    public D search(W word);
     public D[] search(W[] words);
     public int size();
     

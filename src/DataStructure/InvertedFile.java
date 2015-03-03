@@ -28,9 +28,9 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
             newRootNode.setLeafNode(false);
             rootNode.getChildNodes()[0] = rootNode;
             splitChildNode(newRootNode, 0, rootNode); // Split rootNode and move its median (middle) key up into newRootNode.
-            insertIntoNonFullNode(newRootNode, word, document); // Insert the key into the B-Tree with root newRootNode.
+            insertIntoNonFullNode(newRootNode, document, word); // Insert the key into the B-Tree with root newRootNode.
         } else {
-            insertIntoNonFullNode(rootNode, word, document); // Insert the key into the B-Tree with root rootNode.
+            insertIntoNonFullNode(rootNode, document, word); // Insert the key into the B-Tree with root rootNode.
         }
     }
 
@@ -78,33 +78,33 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
     }
 
     // Insert an element into a B-Tree. (The element will ultimately be inserted into a leaf node). 
-    private void insertIntoNonFullNode(Node node, W word, D document) {
+    private void insertIntoNonFullNode(Node node, D document, W word) {
         int i = node.getNumWords() - 1;
         if (node.isLeafNode()) {
             // Since node is not a full node insert the new element into its proper place within node.
-            while (i >= 0 && word < node.getWords()[i]) {
+            while (i >= 0 && document.hashCode() < node.getWords()[i].hashCode()) {
                 node.getWords()[i + 1] = node.getWords()[i];
                 node.getDocuments()[i + 1] = node.getDocuments()[i];
                 i--;
             }
             i++;
-            node.getWords()[i] = word;
             node.getDocuments()[i] = document;
-            node.setNumWords(node.getNumWords()+1);
+            node.getWords()[i] = word;
+            node.setNumWords(node.getNumWords() + 1);
         } else {
-                        // Move back from the last key of node until we find the child pointer to the node
+            // Move back from the last key of node until we find the child pointer to the node
             // that is the root node of the subtree where the new element should be placed.
-            while (i >= 0 && word < node.getWords()[i]) {
+            while (i >= 0 && document.hashCode() < node.getWords()[i].hashCode()) {
                 i--;
             }
             i++;
             if (node.getChildNodes()[i].getNumWords() == (2 * T - 1)) {
                 splitChildNode(node, i, node.getChildNodes()[i]);
-                if (word > node.getWords()[i]) {
+                if (document.hashCode() > node.getWords()[i].hashCode()) {
                     i++;
                 }
             }
-            insertIntoNonFullNode(node.getChildNodes()[i], word, document);
+            insertIntoNonFullNode(node.getChildNodes()[i], document, word);
         }
     }
 
@@ -139,8 +139,8 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
     }
 
     @Override
-    public D[] search(W word) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public D search(W word) {
+        return search2(rootNode, word);
     }
 
     @Override
@@ -148,9 +148,43 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    private D search2(Node node, W word) {
+        while (node != null) {
+            int i = 0;
+            while (i < node.getNumWords() && word.hashCode() > node.getWords()[i].hashCode()) {
+                i++;
+            }
+            if (i < node.getNumWords() && word.hashCode() == node.getWords()[i].hashCode()) {
+                return (D) node.getDocuments()[i];
+            }
+            if (node.isLeafNode()) {
+                return null;
+            } else {
+                node = node.getChildNodes()[i];
+            }
+        }
+        return null;
+    }
+
     @Override
     public int size() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        String string = "";
+        Node node = this.rootNode;
+        while (!node.isLeafNode()) {
+            node = node.getChildNodes()[0];
+        }
+        while (node != null) {
+            for (int i = 0; i < node.getNumWords(); i++) {
+                string += node.getDocuments()[i] + ", ";
+            }
+            node = node.getNextNode();
+        }
+        return string;
     }
 
 }

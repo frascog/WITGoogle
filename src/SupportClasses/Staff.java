@@ -90,9 +90,7 @@ public class Staff {
 
     @Override
     public String toString() {
-        String measage = this.firstName + " " + this.lastName + "\n";
-        measage += this.title + "\n";
-        return measage;
+        return this.firstName + " " + this.lastName;
     }
 }
     

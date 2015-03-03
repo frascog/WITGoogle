@@ -5,6 +5,7 @@
  */
 package SupportClasses;
 
+import DataStructure.InvertedFile;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,8 +17,10 @@ import java.io.IOException;
 public class Loader {
 
         private Staff staff = null;
+        private InvertedFile invertedFile;
         
-    public Loader() {
+    public Loader(InvertedFile invertedFile) {
+        this.invertedFile = invertedFile;
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader("src/Data/Data.txt"));
@@ -56,9 +59,13 @@ public class Loader {
             String[] email = line.split("Email ");
             staff.setEmail(email[1]);
         } else {
-            System.out.println(staff);
+            if(staff!= null){
+                System.out.println(staff);
+                invertedFile.add(staff.toString(), staff.getTitle());
+            }
             String[] name = line.split(" ");
             staff = new Staff(name[0], name[1]);
+            
         }    
     }
     
