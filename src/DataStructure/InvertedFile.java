@@ -11,18 +11,49 @@ package DataStructure;
  */
 public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
-    private static final int DEFUALT_INITIAL_CAPACITY = 16;
-    private static final int MAXIMUM_CAPACITY = 30;
+    private static final int DEFUALT_INITIAL_CAPACITY = 1000;
+    private static final int MAXIMUM_CAPACITY = 20000;
     private int size = 0;
-    
+    private Entry[] entries;
 
-    @Override
-    public void add(D document, W word) {
-        
+    public InvertedFile() {
+        this.entries = new Entry[DEFUALT_INITIAL_CAPACITY];
+    }
+
+    public InvertedFile(int initialCapacity) {
+        this.entries = new Entry[initialCapacity];
     }
 
     @Override
-    public void remove(D document, W word) {
+    public boolean add(D document, W word) {
+        boolean result = false;
+        Entry tempEntry = this.entries[size];
+        boolean newKey = true;
+        //look to see if key already exist
+        for (int i = 0; i < size; i++) {
+            if (this.entries[i].getKey() == word) {
+                newKey = false;
+                if (!this.entries[i].contains(document)) {
+                    result = this.entries[i].add(document);
+                }
+                break;
+            }
+        }
+        //add new key if does not exist
+        if (newKey) {
+            this.entries[size] = new Entry(word);
+            result = this.entries[size].add(document);
+            if (result) {
+                size++;
+            } else {
+                this.entries[size] = tempEntry;
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public boolean remove(D document, W word) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -65,6 +96,4 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
     public int size() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-
 }

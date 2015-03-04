@@ -19,6 +19,7 @@ public class Entry<W,D> {
     
     public Entry(W key) {
         this.key = key;
+        documents = new ArrayList<D>();
     }
     
     public boolean add(D document){
