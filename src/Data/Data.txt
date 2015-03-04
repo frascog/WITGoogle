@@ -127,4 +127,20 @@ Mira Yun
     OfficeNumber 133
     Phone 617 989 4496 
     Email yunm@wit.edu
-name here
+Anthony Alamia
+    Title Academic Coordinator
+    Deparment Computer Science and Computer Networking
+    Degree MA Northeastern University
+    Degree BA College at Plattsburgh
+    OfficeLocation Dobbs
+    OfficeNumber 147
+    Phone 617 989 4272 
+    Email alamiaa@wit.edu
+Jeffrey Williams
+    Title Laboratory Technician
+    Deparment Computer Science and Computer Networking
+    OfficeLocation Dobbs
+    OfficeNumber 147
+    Phone 617 989 4322 
+    Email williamsj3@wit.edu
+Name Here
