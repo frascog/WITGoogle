@@ -61,9 +61,14 @@ public class Loader {
         } else {
             if(staff!= null){
                 System.out.println(staff);
-                invertedFile.add(staff.toString(), staff.getTitle());
+                invertedFile.add(staff, staff.getTitle());
                 invertedFile.add(staff, staff.getFirstName());
                 invertedFile.add(staff, staff.getLastName());
+                invertedFile.add(staff, staff.getDepartment());
+                invertedFile.add(staff, staff.getEmail());
+                invertedFile.add(staff, staff.getOfficeLocation());
+                invertedFile.add(staff, staff.getOfficeNumber());
+                invertedFile.add(staff, staff.getPhone());
             }
             String[] name = line.split(" ");
             staff = new Staff(name[0], name[1]);

@@ -5,7 +5,7 @@ Michael Oudshoorn
     Degree BS The University of Adelaide
     OfficeLocation Dobbs
     OfficeNumber 142
-    Phone  617-989-4275
+    Phone 617 989 4275
     Email oudshoornm@wit.edu
 Karina Assiter
     Title Associate Professor
@@ -14,8 +14,8 @@ Karina Assiter
     Degree BA Mills College
     OfficeLocation Dobbs
     OfficeNumber 141
-    Phone 617-989-4835 
-    Email oudshoornm@wit.edu
+    Phone 617 989 4835
+    Email assiterk@wit.edu
 Leonidas Deligiannidis
     Title Professor
     Deparment Computer Science and Computer Networking
@@ -23,7 +23,7 @@ Leonidas Deligiannidis
     Degree BS Northeastern University
     OfficeLocation Dobbs
     OfficeNumber 145
-    Phone 617-989-4142 
+    Phone 617 989 4142
     Email deligiannidisl@wit.edu
 Nate Derbinsky
     Title Assistant Professor
@@ -32,6 +32,99 @@ Nate Derbinsky
     Degree BS North Carolina State University
     OfficeLocation Dobbs
     OfficeNumber 140
-    Phone 617-989-4287 
+    Phone 617 989 4287
     Email derbinskyn@wit.edu
+Magdy Ellabidy
+    Title Assistant Professor
+    Deparment Computer Science and Computer Networking
+    Degree MS Lesley University
+    Degree BS Lesley University
+    OfficeLocation Dobbs
+    OfficeNumber 139
+    Phone 617 989 4121
+    Email ellabidym@wit.edu
+Joseph Lawrance
+    Title Assistant Professor
+    Deparment Computer Science and Computer Networking
+    Degree PhD Oregon State University
+    Degree BA Lawrence University
+    OfficeLocation Dobbs
+    OfficeNumber 133
+    Phone 617 989 4749
+    Email lawrancej@wit.edu
+Lisa Maclean
+    Title Assistant Professor
+    Deparment Computer Science and Computer Networking
+    Degree MS Bentley University
+    Degree BS Rhode Island College
+    OfficeLocation Dobbs
+    OfficeNumber 137
+    Phone 617 989 4122
+    Email macleanl@wit.edu
+David Rilett
+    Title Assistant Professor
+    Deparment Computer Science and Computer Networking
+    Degree MS Brandeis University
+    Degree BA  University of Michigan
+    OfficeLocation Dobbs
+    OfficeNumber 146
+    Phone 617 989 4832
+    Email rilettd@wit.edu
+John Russo
+    Title Associate Professor
+    Deparment Computer Science and Computer Networking
+    Degree MS Boston University
+    Degree MS UMass Lowell
+    Degree BA Saint Anselm College
+    OfficeLocation Dobbs
+    OfficeNumber 135
+    Phone 617 989 4138
+    Email russoj@wit.edu
+Durga Suresh
+    Title Associate Professor
+    Deparment Computer Science and Computer Networking
+    Degree MS Saint Joseph's University
+    Degree BS Madras University
+    OfficeLocation Dobbs
+    OfficeNumber 143
+    Phone 617 989 4833
+    Email sureshd@wit.edu
+Charles Wiseman
+    Title Assistant Professor
+    Deparment Computer Science and Computer Networking
+    Degree PhD Washington University
+    Degree BS University of Tennessee
+    OfficeLocation Dobbs
+    OfficeNumber 144
+    Phone 617 989 4704
+    Email wisemanc@wit.edu
+Hongsheng Wu
+    Title Professor
+    Deparment Computer Science and Computer Networking
+    Degree PhD Boston University
+    Degree BS Ohio University
+    OfficeLocation Dobbs
+    OfficeNumber 138
+    Phone 617 989 4834
+    Email wuh@wit.edu
+Jones Yu
+    Title Assistant Professor
+    Deparment Computer Science and Computer Networking
+    Degree PhD Massachusetts Institute of Technology
+    Degree MS National Taiwan University
+    Degree BS Tamkang University
+    OfficeLocation Dobbs
+    OfficeNumber 136
+    Phone 617 989 4288 
+    Email yuj6@wit.edu
+Mira Yun
+    Title Assistant Professor
+    Deparment Computer Science and Computer Networking
+    Degree PhD The George Washington University
+    Degree MS Pukyong National University
+    Degree BS Pukyong National University
+    OfficeLocation Dobbs
+    OfficeNumber 133
+    Phone 617 989 4496 
+    Email yunm@wit.edu
 name here

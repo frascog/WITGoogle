@@ -27,11 +27,10 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
     @Override
     public boolean add(D document, W word) {
         boolean result = false;
-        Entry tempEntry = this.entries[size];
         boolean newKey = true;
         //look to see if key already exist
         for (int i = 0; i < size; i++) {
-            if (this.entries[i].getKey() == word) {
+            if (this.entries[i].getKey().equals(word)) {
                 newKey = false;
                 if (!this.entries[i].contains(document)) {
                     result = this.entries[i].add(document);
@@ -41,6 +40,7 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
         }
         //add new key if does not exist
         if (newKey) {
+            Entry tempEntry = this.entries[size];
             this.entries[size] = new Entry(word);
             result = this.entries[size].add(document);
             if (result) {
@@ -96,4 +96,17 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
     public int size() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String toString() {
+        String message = "";
+        for (Entry entry : entries) {
+            if(entry != null){
+                message  += entry.toString() + "\n";
+            }
+        }
+        return message;
+    }
+    
+    
 }
