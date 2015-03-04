@@ -10,10 +10,7 @@ package DataStructure;
  * @author Greg
  */
 public interface InvertedFileInterface<D,W> {
-    
-    public final int T = 4;
-    public Node rootNode = null;
-    
+        
     public void add(D document, W word);
     public void remove(D document, W word);
     public int capasity();
