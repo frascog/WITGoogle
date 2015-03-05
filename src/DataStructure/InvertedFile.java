@@ -5,6 +5,8 @@
  */
 package DataStructure;
 
+import java.util.List;
+
 /**
  *
  * @author Greg
@@ -26,30 +28,17 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     @Override
     public boolean add(D document, W word) {
-        boolean result = false;
-        boolean newKey = true;
-        //look to see if key already exist
-        for (int i = 0; i < size; i++) {
-            if (this.entries[i].getKey().equals(word)) {
-                newKey = false;
-                if (!this.entries[i].contains(document)) {
-                    result = this.entries[i].add(document);
-                }
-                break;
-            }
+        if (word == null) {
+            return false;
         }
-        //add new key if does not exist
-        if (newKey) {
-            Entry tempEntry = this.entries[size];
-            this.entries[size] = new Entry(word);
-            result = this.entries[size].add(document);
-            if (result) {
-                size++;
-            } else {
-                this.entries[size] = tempEntry;
-            }
+        int hash = word.hashCode();
+        if (this.containsWord(word)) {
+            return this.entries[getIndex(word)].add(document);
         }
-        return result;
+        
+        this.entries[size] = new Entry(word);
+        size++;
+        return this.entries[size-1].add(document);
     }
 
     @Override
@@ -74,7 +63,12 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     @Override
     public boolean containsWord(W word) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < size; i++) {
+            if(this.entries[i].getKey().equals(word)){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -101,12 +95,21 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
     public String toString() {
         String message = "";
         for (Entry entry : entries) {
-            if(entry != null){
-                message  += entry.toString() + "\n";
+            if (entry != null) {
+                message += entry.toString() + "\n";
             }
         }
         return message;
     }
-    
-    
+
+    private int getIndex(W word) {
+        if (this.containsWord(word)) {
+            for (int i = 0; i < this.size; i++) {
+                if (entries[i].getKey().equals(word)) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
 }
