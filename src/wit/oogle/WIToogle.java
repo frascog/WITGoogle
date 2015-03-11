@@ -7,6 +7,7 @@ package wit.oogle;
 
 import DataStructure.InvertedFile;
 import SupportClasses.Loader;
+import SupportClasses.Staff;
 import java.applet.Applet;
 import java.util.Scanner;
 
@@ -20,15 +21,19 @@ public class WIToogle extends Applet {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        InvertedFile invertedFile = new InvertedFile<String,String>();
+        InvertedFile invertedFile = new InvertedFile<String, String>();
         new Loader(invertedFile);
         System.out.println();
         System.out.println(invertedFile);
         System.out.println();
-        //Scanner keyboard = new Scanner(System.in);
-        //String search = keyboard.nextLine();
-        //System.out.println(invertedFile.search(search));
+        Scanner keyboard = new Scanner(System.in);
+        String search = keyboard.nextLine();
+        Object[] staff = invertedFile.search(search);
+        if (staff != null) {
+            for (Object object : staff) {
+                Staff staffs = (Staff) object;
+                System.out.println(staffs);
+            }
+        }
     }
-
-
 }

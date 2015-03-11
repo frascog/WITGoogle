@@ -75,7 +75,11 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     @Override
     public D[] search(W word) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(this.containsWord(word)){
+            int index = this.getIndex(word);
+            return (D[]) this.entries[index].getDocuments();
+        }
+        return null;
     }
 
     @Override
