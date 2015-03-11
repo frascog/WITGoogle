@@ -26,7 +26,7 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     @Override
     public boolean add(D document, W word) {
-        if (word == null) {
+        if (word == null || document == null) {
             return false;
         }
         if (this.containsWord(word)) {
@@ -41,17 +41,19 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     @Override
     public boolean remove(D document, W word) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int capasity() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (word == null || document == null) {
+            return false;
+        }
+        if (this.containsWord(word)) {
+            return this.entries[getIndex(word)].remove(document);
+        }
+        return false;
     }
 
     @Override
     public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.entries = new Entry[DEFUALT_INITIAL_CAPACITY];
+        this.size = 0;
     }
 
     @Override
@@ -83,7 +85,7 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return size;
     }
 
     @Override
@@ -105,11 +107,9 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
             int middle = (low + high) / 2;
             if (this.entries[middle].getHash() == hash) {
                 return middle;
-            }
-            if (this.entries[middle].getHash() < hash) {
+            } else if (this.entries[middle].getHash() < hash) {
                 low = middle + 1;
-            }
-            if (this.entries[middle].getHash() > hash) {
+            } else if (this.entries[middle].getHash() > hash) {
                 high = middle - 1;
             }
         }

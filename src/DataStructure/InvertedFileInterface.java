@@ -13,7 +13,6 @@ public interface InvertedFileInterface<D,W> {
         
     public boolean add(D document, W word);
     public boolean remove(D document, W word);
-    public int capasity();
     public void clear();
     public boolean isEmpty();
     public boolean containsWord(W word);

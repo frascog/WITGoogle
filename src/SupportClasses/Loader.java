@@ -73,12 +73,11 @@ public class Loader {
                 //invertedFile.add(staff, staff.getPhone());
                 for (Object degree : staff.getDegrees()) {
                     String object = degree.toString();
-                    invertedFile.add(staff, object);
+                    this.add(staff, object.split(" "));
                 }
             }
             String[] name = line.split(" ");
             staff = new Staff(name[0], name[1]);
-            
         }    
     }
     
