@@ -14,11 +14,13 @@ import java.util.ArrayList;
 public class Entry<W,D> {
     
     private final W key;
+    private final int hash;
     private ArrayList<D> documents;
     private Entry<W,D> next;
     
     public Entry(W key) {
         this.key = key;
+        this.hash = key.hashCode();
         documents = new ArrayList<D>();
     }
     
@@ -60,6 +62,10 @@ public class Entry<W,D> {
 
     public W getKey() {
         return key;
+    }
+
+    public int getHash() {
+        return hash;
     }
     
     @Override
