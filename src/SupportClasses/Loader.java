@@ -64,16 +64,28 @@ public class Loader {
                 invertedFile.add(staff, staff.getTitle());
                 invertedFile.add(staff, staff.getFirstName());
                 invertedFile.add(staff, staff.getLastName());
-                invertedFile.add(staff, staff.getDepartment());
+                add(staff, staff.getDepartment().split(" "));
+                //invertedFile.add(staff, staff.getDepartment());
                 invertedFile.add(staff, staff.getEmail());
                 invertedFile.add(staff, staff.getOfficeLocation());
                 invertedFile.add(staff, staff.getOfficeNumber());
-                invertedFile.add(staff, staff.getPhone());
+                add(staff, staff.getPhone().split(" "));
+                //invertedFile.add(staff, staff.getPhone());
+                for (Object degree : staff.getDegrees()) {
+                    String object = degree.toString();
+                    invertedFile.add(staff, object);
+                }
             }
             String[] name = line.split(" ");
             staff = new Staff(name[0], name[1]);
             
         }    
+    }
+    
+    private void add(Staff staff, String[] strings){
+        for (String string : strings) {
+            invertedFile.add(staff, string);
+        }
     }
     
     private String removeExtraWhiteSpace(String string) {

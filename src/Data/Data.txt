@@ -65,7 +65,7 @@ David Rilett
     Title Assistant Professor
     Deparment Computer Science and Computer Networking
     Degree MS Brandeis University
-    Degree BA  University of Michigan
+    Degree BA University of Michigan
     OfficeLocation Dobbs
     OfficeNumber 146
     Phone 617 989 4832

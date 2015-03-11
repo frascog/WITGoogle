@@ -30,13 +30,11 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
             return false;
         }
         if (this.containsWord(word)) {
-            boolean result = this.entries[getIndex(word)].add(document);
-            this.insertionSort();
-            return result;
+            return this.entries[getIndex(word)].add(document);
         }
         this.entries[size] = new Entry(word);
         size++;
-        boolean result = this.entries[size-1].add(document);
+        boolean result = this.entries[size - 1].add(document);
         this.insertionSort();
         return result;
     }
@@ -69,11 +67,12 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     @Override
     public boolean contains(D document, W word) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int index = this.getIndex(word);
+        return this.entries[index].contains(document);
     }
 
     @Override
-    public D search(W word) {
+    public D[] search(W word) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -99,34 +98,51 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
     }
 
     private int getIndex(W word) {
-        if (this.containsWord(word.hashCode())) {
-            for (int i = 0; i < this.size; i++) {
-                if (entries[i].getKey().equals(word)) {
-                    return i;
-                }
+        int hash = word.hashCode();
+        int low = 0;
+        int high = size - 1;
+        while (high >= low) {
+            int middle = (low + high) / 2;
+            if (this.entries[middle].getHash() == hash) {
+                return middle;
+            }
+            if (this.entries[middle].getHash() < hash) {
+                low = middle + 1;
+            }
+            if (this.entries[middle].getHash() > hash) {
+                high = middle - 1;
             }
         }
         return -1;
     }
 
     private boolean containsWord(int hash) {
-        for (int i = 0; i < size; i++) {
-            if(this.entries[i].getKey().equals(hash)){
+        int low = 0;
+        int high = size - 1;
+        while (high >= low) {
+            int middle = (low + high) / 2;
+            if (this.entries[middle].getHash() == hash) {
                 return true;
+            }
+            if (this.entries[middle].getHash() < hash) {
+                low = middle + 1;
+            }
+            if (this.entries[middle].getHash() > hash) {
+                high = middle - 1;
             }
         }
         return false;
     }
-    
+
     private void insertionSort() {
         for (int j = 1; j < this.size; j++) {
             Entry key = this.entries[j];
-            int i = j-1;
-            while ( (i > -1) && ( this.entries[i].getHash() > key.getHash() ) ) {
-                this.entries[i+1] = this.entries[i];
+            int i = j - 1;
+            while ((i > -1) && (this.entries[i].getHash() > key.getHash())) {
+                this.entries[i + 1] = this.entries[i];
                 i--;
             }
-            this.entries[i+1] = key;
+            this.entries[i + 1] = key;
         }
     }
 }

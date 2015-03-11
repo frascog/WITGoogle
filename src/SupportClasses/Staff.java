@@ -5,7 +5,9 @@
  */
 package SupportClasses;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -15,7 +17,7 @@ public class Staff {
     
     private final String firstName;
     private final String lastName;
-    private HashMap<String,String> degrees;
+    private HashMap<String,List<String>> degrees;
     private String email;
     private String phone;
     private String department;
@@ -26,6 +28,7 @@ public class Staff {
     public Staff(String firstName, String LastName) {
         this.firstName = firstName;
         this.lastName = LastName;
+        degrees = new HashMap<String,List<String>>();
     }
 
     public String getFirstName() {
@@ -85,7 +88,29 @@ public class Staff {
     }
 
     public void addDegree(String degree) {
-        
+        String[] info = degree.split(" ", 2);
+        String title = info[0];
+        String institute = info[1];
+        if(degrees.containsKey(title)){
+            degrees.get(title).add(institute);
+        }else{
+            List list = new ArrayList<String>();
+            list.add(institute);
+            degrees.put(title, list);
+        }
+    }
+    
+    public Object[] getDegrees(){
+        List<String> info = new ArrayList<String>();
+        Object[] keys = this.degrees.keySet().toArray();
+        for (Object key : keys) {
+            String object = key.toString();
+            info.add(object);
+            for (String school : degrees.get(object)) {
+                info.add(school);
+            }  
+        }
+        return info.toArray();
     }
 
     @Override

@@ -25,9 +25,9 @@ public class WIToogle extends Applet {
         System.out.println();
         System.out.println(invertedFile);
         System.out.println();
-        Scanner keyboard = new Scanner(System.in);
-        String search = keyboard.nextLine();
-        System.out.println(invertedFile.search(search));
+        //Scanner keyboard = new Scanner(System.in);
+        //String search = keyboard.nextLine();
+        //System.out.println(invertedFile.search(search));
     }
 
 
