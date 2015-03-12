@@ -61,7 +61,8 @@ public class Loader {
         } else {
             if(staff!= null){
                 System.out.println(staff);
-                invertedFile.add(staff, staff.getTitle());
+                add(staff, staff.getTitle().split(" "));
+                //invertedFile.add(staff, staff.getTitle());
                 invertedFile.add(staff, staff.getFirstName());
                 invertedFile.add(staff, staff.getLastName());
                 add(staff, staff.getDepartment().split(" "));

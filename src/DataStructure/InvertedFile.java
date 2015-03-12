@@ -75,7 +75,7 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     @Override
     public D[] search(W word) {
-        if(this.containsWord(word)){
+        if (this.containsWord(word)) {
             int index = this.getIndex(word);
             return (D[]) this.entries[index].getDocuments();
         }
@@ -84,7 +84,17 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     @Override
     public D[] search(W[] words) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        D[] aDocs = (D[]) new Object[0];
+        D[] cDocs = (D[]) new Object[0];
+        for (W word : words) {
+            D[] bDocs = search(word);
+            if (bDocs != null) {
+                cDocs = (D[]) new Object[aDocs.length + bDocs.length];
+                System.arraycopy(aDocs, 0, cDocs, 0, aDocs.length);
+                System.arraycopy(bDocs, 0, cDocs, aDocs.length, bDocs.length);
+            }
+        }
+        return cDocs;
     }
 
     @Override

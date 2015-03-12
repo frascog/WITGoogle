@@ -28,7 +28,7 @@ public class WIToogle extends Applet {
         System.out.println();
         Scanner keyboard = new Scanner(System.in);
         String search = keyboard.nextLine();
-        Object[] staff = invertedFile.search(search);
+        Object[] staff = invertedFile.search(search.split(" "));
         if (staff != null) {
             for (Object object : staff) {
                 Staff staffs = (Staff) object;
