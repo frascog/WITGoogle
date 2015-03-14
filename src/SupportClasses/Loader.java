@@ -63,17 +63,17 @@ public class Loader {
                 System.out.println(staff);
                 add(staff, staff.getTitle().split(" "));
                 //invertedFile.add(staff, staff.getTitle());
-                invertedFile.add(staff, staff.getFirstName());
-                invertedFile.add(staff, staff.getLastName());
+                invertedFile.add(staff, staff.getFirstName().toLowerCase());
+                invertedFile.add(staff, staff.getLastName().toLowerCase());
                 add(staff, staff.getDepartment().split(" "));
                 //invertedFile.add(staff, staff.getDepartment());
-                invertedFile.add(staff, staff.getEmail());
-                invertedFile.add(staff, staff.getOfficeLocation());
-                invertedFile.add(staff, staff.getOfficeNumber());
+                invertedFile.add(staff, staff.getEmail().toLowerCase());
+                invertedFile.add(staff, staff.getOfficeLocation().toLowerCase());
+                invertedFile.add(staff, staff.getOfficeNumber().toLowerCase());
                 add(staff, staff.getPhone().split(" "));
                 //invertedFile.add(staff, staff.getPhone());
                 for (Object degree : staff.getDegrees()) {
-                    String object = degree.toString();
+                    String object = degree.toString().toLowerCase();
                     this.add(staff, object.split(" "));
                 }
             }
@@ -84,7 +84,7 @@ public class Loader {
     
     private void add(Staff staff, String[] strings){
         for (String string : strings) {
-            invertedFile.add(staff, string);
+            invertedFile.add(staff, string.toLowerCase());
         }
     }
     
