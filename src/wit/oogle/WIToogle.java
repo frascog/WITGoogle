@@ -28,6 +28,7 @@ public class WIToogle extends Applet {
         System.out.println();
         Scanner keyboard = new Scanner(System.in);
         String search = keyboard.nextLine();
+        search = removeExtraChars(search);
         search = search.toLowerCase();
         Object[] staff = invertedFile.search(search.split(" "));
         if (staff != null) {
@@ -36,5 +37,9 @@ public class WIToogle extends Applet {
                 System.out.println(staffs);
             }
         }
+    }
+
+    private static String removeExtraChars(String value) {
+        return value.replaceAll("[^A-Za-z0-9 ]", "");
     }
 }
