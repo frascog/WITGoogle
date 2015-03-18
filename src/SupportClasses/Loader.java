@@ -69,6 +69,7 @@ public class Loader {
                 //invertedFile.add(staff, staff.getDepartment());
                 invertedFile.add(staff, staff.getEmail().toLowerCase());
                 invertedFile.add(staff, staff.getOfficeLocation().toLowerCase());
+                add(staff, staff.getOfficeLocation().split(" "));
                 invertedFile.add(staff, staff.getOfficeNumber().toLowerCase());
                 add(staff, staff.getPhone().split(" "));
                 //invertedFile.add(staff, staff.getPhone());

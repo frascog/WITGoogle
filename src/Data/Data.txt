@@ -143,4 +143,61 @@ Jeffrey Williams
     OfficeNumber 147
     Phone 617 989 4322 
     Email williamsj3@wit.edu
+Amanda Hattaway
+    Title Chair of Applied Mathematics
+    Deparment Applied Mathematics
+    Degree MS Bioinformatics Brandeis University
+    Degree PhD Mathematics University of Massachusetts Amherst
+    Degree MS Mathematics University of Massachusetts Amherst
+    Degree BS Mathematics Mathematics Brown University
+    OfficeLocation Ira Allen
+    OfficeNumber 319
+    Phone 617 989 4368 
+    Email hattawaya@wit.edu
+Robert Cournoyer
+    Title Associate Professor
+    Deparment Applied Mathematics
+    Degree MS Electrical Engineering Northeastern University
+    Degree MMT Mathematics University of Lowell
+    Degree BS Mathematics Worcester Polytechnic Institute
+    OfficeLocation Ira Allen
+    OfficeNumber 305
+    Phone 617 989 4356 
+    Email cournoyerr@wit.edu
+Donald Filan
+    Title Associate Professor
+    Deparment Applied Mathematics
+    Degree MA Mathematics University of Massachusetts
+    Degree BS Mathematics Northeastern University
+    OfficeLocation Ira Allen
+    OfficeNumber 304
+    Phone 617 989 4359  
+    Email filand@wit.edu
+John Haga
+    Title Assistant Professor
+    Deparment Applied Mathematics
+    Degree PhD Mathematics University of Connecticut
+    Degree BS Mathematics University of Connecticut
+    OfficeLocation Ira Allen
+    OfficeNumber 318
+    Phone 617 989 4769  
+    Email hagaj@wit.edu
+Melvin Henriksen
+    Title Assistant Professor
+    Deparment Applied Mathematics
+    Degree MS Engineering University of California Irvine
+    Degree BS Engineering University of California Irvine
+    OfficeLocation Ira Allen
+    OfficeNumber 304
+    Phone 617 989 4431  
+    Email henriksenm@wit.edu
+Dwight Horan
+    Title Associate Professor
+    Deparment Applied Mathematics
+    Degree MS Specializing in Mathematics Fitchburg State College
+    Degree BS Mathematics Fitchburg State College
+    OfficeLocation Ira Allen
+    OfficeNumber 311
+    Phone 617 989 4358  
+    Email horand@wit.edu
 Name Here
