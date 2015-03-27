@@ -11,6 +11,7 @@ package DataStructure;
  */
 public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
+    private long searchTime;
     private static final int DEFUALT_INITIAL_CAPACITY = 1000;
     private static final int MAXIMUM_CAPACITY = 20000;
     private int size = 0;
@@ -75,10 +76,15 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     @Override
     public D[] search(W word) {
-        if (this.containsWord(word)) {
+        long startTime = System.currentTimeMillis();
+        if (this.containsWord(word)) {         
             int index = this.getIndex(word);
+            long endTime = System.currentTimeMillis();
+            searchTime += (endTime - startTime);
             return (D[]) this.entries[index].getDocuments();
         }
+        long endTime = System.currentTimeMillis();
+        searchTime += (endTime - startTime);
         return null;
     }
 
@@ -158,5 +164,13 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
             }
             this.entries[i + 1] = key;
         }
+    }
+
+    public long getSearchTime() {
+        return searchTime;
+    }
+
+    public void resetTime() {
+        searchTime = 0;
     }
 }

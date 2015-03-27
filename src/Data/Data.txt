@@ -200,4 +200,23 @@ Dwight Horan
     OfficeNumber 311
     Phone 617 989 4358  
     Email horand@wit.edu
-Name Here
+Barry Husowitz
+    Title Assistant Professor
+    Deparment Applied Mathematics
+    Degree PhD Physical Chemistry University of Arizona
+    Degree MS Physical Chemistry Youngstown State University
+    Degree BS Chemistry Mathematics Bloomsburg University
+    OfficeLocation Ira Allen
+    OfficeNumber 304
+    Phone 617 989 4341  
+    Email husowitzb@wit.edu
+Grace Kennedy
+    Title Assistant Professor
+    Deparment Applied Mathematics
+    Degree PhD Mathematics University of California Santa Barbara
+    Degree MA Mathematics University of Picardy Amiens France
+    Degree BS Mathematics and French University of the South Sewanee TN
+    OfficeLocation Ira Allen
+    OfficeNumber 310
+    Phone 617 989 4352
+    Email kennedyk2@wit.edu

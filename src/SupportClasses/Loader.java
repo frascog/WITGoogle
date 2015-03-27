@@ -59,7 +59,7 @@ public class Loader {
             staff.setEmail(email[1]);
         } else {
             if(staff!= null){
-                System.out.println(staff);
+                //System.out.println(staff);
                 add(staff, staff.getTitle().split(" "));
                 //invertedFile.add(staff, staff.getTitle());
                 invertedFile.add(staff, staff.getFirstName().toLowerCase());
