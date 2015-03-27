@@ -5,6 +5,7 @@
  */
 package SupportClasses;
 
+import Views.StaffView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +25,7 @@ public class Staff {
     private String title;
     private String officeLocation;
     private String officeNumber;
+    private StaffView view;
 
     public Staff(String firstName, String LastName) {
         this.firstName = firstName;
@@ -116,6 +118,13 @@ public class Staff {
     @Override
     public String toString() {
         return this.firstName + " " + this.lastName;
+    }
+    
+    public StaffView getView(){
+        if (this.view == null){
+            this.view = new StaffView(this);
+        }
+        return view;
     }
 }
     

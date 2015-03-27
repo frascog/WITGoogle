@@ -29,7 +29,6 @@ public class Loader {
                 setInfo(removeExtraWhiteSpace(line));
                 line = br.readLine();
             }
-            System.out.println(staff);
             br.close();
         } catch (IOException ex) {
             System.exit(-1);

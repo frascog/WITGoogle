@@ -5,11 +5,12 @@
  */
 package wit.oogle;
 
-import DataStructure.InvertedFile;
-import SupportClasses.Loader;
 import SupportClasses.Staff;
+import Views.MainPanel;
 import java.applet.Applet;
-import java.util.Scanner;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 
 /**
  *
@@ -21,25 +22,20 @@ public class WIToogle extends Applet {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        InvertedFile invertedFile = new InvertedFile<String, String>();
-        new Loader(invertedFile);
-        System.out.println();
-        System.out.println(invertedFile);
-        System.out.println();
-        Scanner keyboard = new Scanner(System.in);
-        String search = keyboard.nextLine();
-        search = removeExtraChars(search);
-        search = search.toLowerCase();
-        Object[] staff = invertedFile.search(search.split(" "));
-        if (staff != null) {
-            for (Object object : staff) {
-                Staff staffs = (Staff) object;
-                System.out.println(staffs);
+        JFrame jFrame = new JFrame("WIT - Google");
+        jFrame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent evt) {
+                System.exit(0);
             }
-        }
-    }
-
-    private static String removeExtraChars(String value) {
-        return value.replaceAll("[^A-Za-z0-9 ]", "");
+        });  
+        jFrame.add(new MainPanel());
+        jFrame.pack();
+        jFrame.setVisible(true);
+//        if (staff != null) {
+//            for (Object object : staff) {
+//                Staff staffs = (Staff) object;
+//                System.out.println(staffs);
+//            }
+//        }
     }
 }
