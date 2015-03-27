@@ -220,4 +220,14 @@ Grace Kennedy
     OfficeNumber 310
     Phone 617 989 4352
     Email kennedyk2@wit.edu
+Rachel Lash-Maitra
+    Title Assistant Professor
+    Deparment Applied Mathematics
+    Degree PhD Mathematics Yale University
+    Degree MA Mathematics Yale University
+    Degree BA Mathematics Alfred University
+    OfficeLocation Ira Allen
+    OfficeNumber 313
+    Phone 617 989 4792
+    Email maitrar@wit.edu
 Name Here

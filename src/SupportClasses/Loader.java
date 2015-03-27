@@ -90,8 +90,10 @@ public class Loader {
     
     private String removeExtraWhiteSpace(String string) {
         if (string != null) {
-            while (string.charAt(0) == ' ' || string.charAt(0) == '\t') {
-                string = string.substring(1);
+            if(string.length() >= 1){
+                while (string.charAt(0) == ' ' || string.charAt(0) == '\t') {
+                    string = string.substring(1);
+                }
             }
         }
         return string;
