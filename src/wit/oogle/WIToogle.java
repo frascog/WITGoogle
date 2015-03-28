@@ -5,7 +5,6 @@
  */
 package wit.oogle;
 
-import SupportClasses.Staff;
 import Views.MainPanel;
 import java.applet.Applet;
 import java.awt.event.WindowAdapter;
@@ -31,11 +30,5 @@ public class WIToogle extends Applet {
         jFrame.add(new MainPanel());
         jFrame.pack();
         jFrame.setVisible(true);
-//        if (staff != null) {
-//            for (Object object : staff) {
-//                Staff staffs = (Staff) object;
-//                System.out.println(staffs);
-//            }
-//        }
     }
 }

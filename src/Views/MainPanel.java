@@ -7,7 +7,7 @@ package Views;
 
 import DataStructure.InvertedFile;
 import SupportClasses.Loader;
-import SupportClasses.Staff;
+import SupportClasses.SearchableObjects;
 import java.awt.event.KeyEvent;
 import javax.swing.BoxLayout;
 
@@ -17,7 +17,7 @@ import javax.swing.BoxLayout;
  */
 public class MainPanel extends javax.swing.JPanel {
 
-    private InvertedFile<Staff, String> invertedFile;
+    private InvertedFile<SearchableObjects, String> invertedFile;
 
     public MainPanel() {
         initComponents();
@@ -173,10 +173,13 @@ public class MainPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void initMyComponents() {
-        this.invertedFile = new InvertedFile<Staff, String>();
+        this.invertedFile = new InvertedFile<SearchableObjects, String>();
         new Loader(invertedFile);
         this.jPanel2.setLayout(new BoxLayout(this.jPanel2, BoxLayout.Y_AXIS));
         this.jLabel2.setText("");
+//        for (int i = 0; i < invertedFile.size(); i++) {
+//            System.out.println(invertedFile.get(i));
+//        }
     }
 
     private void search() {
@@ -185,19 +188,17 @@ public class MainPanel extends javax.swing.JPanel {
         Object[] staffs = this.invertedFile.search(removeExtraChars(jTextField1.getText()).toLowerCase().split(" "));
         this.jLabel2.setText(staffs.length + " results out of " + this.invertedFile.size() + " (" + this.invertedFile.getSearchTime() / 1000.0 + " seconds)"
         );
-        displayStaff(staffs);
+        displayResults(staffs);
     }
 
     private static String removeExtraChars(String value) {
         return value.replaceAll("[^A-Za-z0-9 ]", "");
     }
 
-    private void displayStaff(Object[] staffs) {
-        for (Object staff : staffs) {
-            if (staff instanceof Staff) {
-                Staff temp = (Staff) staff;
-                jPanel2.add(temp.getView());
-            }
+    private void displayResults(Object[] objects) {
+        for (Object o : objects) {
+            SearchableObjects item = (SearchableObjects) o;
+            jPanel2.add(item.getView());
         }
         jPanel2.revalidate();
     }

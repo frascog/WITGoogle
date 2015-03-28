@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Greg
  */
-public class Staff {
+public class Staff implements SearchableObjects{
     
     private final String firstName;
     private final String lastName;

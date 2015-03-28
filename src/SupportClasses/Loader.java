@@ -16,9 +16,9 @@ import java.io.IOException;
  */
 public class Loader {
 
-        private Staff staff = null;
-        private InvertedFile invertedFile;
-        
+    private Staff staff = null;
+    private InvertedFile invertedFile;
+
     public Loader(InvertedFile invertedFile) {
         this.invertedFile = invertedFile;
         BufferedReader br = null;
@@ -26,39 +26,51 @@ public class Loader {
             br = new BufferedReader(new FileReader("src/Data/Data.txt"));
             String line = br.readLine();
             while (line != null) {
-                setInfo(removeExtraWhiteSpace(line));
+                setInfoStaff(removeExtraWhiteSpace(line));
                 line = br.readLine();
             }
             br.close();
         } catch (IOException ex) {
             System.exit(-1);
         }
+        try {
+            br = new BufferedReader(new FileReader("src/Data/Spring 2015.txt"));
+            String line = br.readLine();
+            while (line != null) {
+                setInfoClass(removeExtraWhiteSpace(line));
+                line = br.readLine();
+            }
+            br.close();
+        } catch (IOException ex) {
+            System.exit(-1);
+        }
+
     }
 
-    private void setInfo(String line) {
-        if(line.contains("Title ")){
+    private void setInfoStaff(String line) {
+        if (line.contains("Title ")) {
             String[] title = line.split("Title ");
             staff.setTitle(title[1]);
-        } else if (line.contains("Deparment ")){
+        } else if (line.contains("Deparment ")) {
             String[] department = line.split("Deparment ");
             staff.setDepartment(department[1]);
-        } else if (line.contains("Degree ")){
+        } else if (line.contains("Degree ")) {
             String[] degree = line.split("Degree ");
             staff.addDegree(degree[1]);
-        } else if (line.contains("OfficeLocation ")){
+        } else if (line.contains("OfficeLocation ")) {
             String[] officeLocation = line.split("OfficeLocation ");
             staff.setOfficeLocation(officeLocation[1]);
-        } else if (line.contains("OfficeNumber ")){
+        } else if (line.contains("OfficeNumber ")) {
             String[] officeNumber = line.split("OfficeNumber ");
             staff.setOfficeNumber(officeNumber[1]);
-        } else if (line.contains("Phone ")){
+        } else if (line.contains("Phone ")) {
             String[] phone = line.split("Phone ");
             staff.setPhone(phone[1]);
-        } else if (line.contains("Email ")){
+        } else if (line.contains("Email ")) {
             String[] email = line.split("Email ");
             staff.setEmail(email[1]);
         } else {
-            if(staff!= null){
+            if (staff != null) {
                 //System.out.println(staff);
                 add(staff, staff.getTitle().split(" "));
                 //invertedFile.add(staff, staff.getTitle());
@@ -79,23 +91,74 @@ public class Loader {
             }
             String[] name = line.split(" ");
             staff = new Staff(name[0], name[1]);
-        }    
-    }
-    
-    private void add(Staff staff, String[] strings){
-        for (String string : strings) {
-            invertedFile.add(staff, string.toLowerCase());
         }
     }
-    
+
+    private void add(SearchableObjects object, String[] strings) {
+        for (String string : strings) {
+            invertedFile.add(object, string.toLowerCase());
+        }
+    }
+
     private String removeExtraWhiteSpace(String string) {
         if (string != null) {
-            if(string.length() >= 1){
+            if (string.length() >= 1) {
                 while (string.charAt(0) == ' ' || string.charAt(0) == '\t') {
                     string = string.substring(1);
                 }
             }
         }
         return string;
+    }
+
+    private void setInfoClass(String line) {
+        if (line.contains("Select")) {
+            return;
+        } else {
+            try {
+                String[] courseInfo = line.split("\t");
+                Class c = new Class(Integer.parseInt(courseInfo[1]));
+                c.setAct(Integer.parseInt(courseInfo[11]));
+                c.setBuilding(courseInfo[15]);
+                c.setCap(Integer.parseInt(courseInfo[10]));
+                c.setCourse(Integer.parseInt(courseInfo[3]));
+                c.setCredit(Double.parseDouble(courseInfo[6]));
+                c.setDays(courseInfo[8]);
+                c.setInstructor(findStaff(courseInfo[13].toLowerCase().split(" ")));
+                c.setSection(Integer.parseInt(courseInfo[4]));
+                c.setSubject(Subject.valueOf(courseInfo[2]));
+                c.setTitle(courseInfo[7]);
+                addClass(c);
+            } catch (NumberFormatException e) {
+
+            } catch (ArrayIndexOutOfBoundsException e){
+                
+            }
+        }
+    }
+
+    private Staff findStaff(String[] staff) {
+        Object[] object = invertedFile.search(staff);
+        for (Object o : object) {
+            if (o instanceof Staff) {
+                Staff s = (Staff) o;
+                return s;
+            }
+        }
+        return new Staff(staff[0], staff[1]);
+    }
+
+    private void addClass(Class c) {
+        invertedFile.add(c, c.getAct());
+        add(c, c.getBuilding().toLowerCase().split(" "));
+        invertedFile.add(c, c.getCRN());
+        invertedFile.add(c, c.getCap());
+        invertedFile.add(c, c.getCourse());
+        invertedFile.add(c, c.getCredit());
+        add(c, c.getDays().toLowerCase().split(""));
+        invertedFile.add(c, c.getInstructor());
+        invertedFile.add(c, c.getSection());
+        add(c, c.getSubject().toString().toLowerCase().split(" "));
+        add(c, c.getTitle().toString().toLowerCase().split(" "));
     }
 }

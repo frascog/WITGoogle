@@ -5,6 +5,8 @@
  */
 package DataStructure;
 
+import SupportClasses.SearchableObjects;
+
 /**
  *
  * @author Greg
@@ -172,5 +174,9 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     public void resetTime() {
         searchTime = 0;
+    }
+    
+    public Entry<W,D> get(int i){
+        return entries[i];
     }
 }
