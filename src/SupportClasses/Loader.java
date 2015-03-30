@@ -138,7 +138,19 @@ public class Loader {
     }
 
     private Staff findStaff(String[] staff) {
-        Object[] object = invertedFile.search(staff);
+        String[] staffName;
+        if(staff.length == 3){
+           staffName = new String[2];
+           staffName[0] = staff[0];
+           staffName[1] = staff[1];
+        } else if(staff.length == 4){
+           staffName = new String[2];
+           staffName[0] = staff[0];
+           staffName[1] = staff[2];
+        } else {
+           staffName = staff;
+        }
+        Object[] object = invertedFile.search(staffName);
         for (Object o : object) {
             if (o instanceof Staff) {
                 Staff s = (Staff) o;
