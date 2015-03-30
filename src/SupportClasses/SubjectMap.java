@@ -12,6 +12,6 @@ import java.util.HashMap;
  * @author frascog
  */
 public class SubjectMap {
-    public static HashMap<Subject,String> map;
-    public static String subjectName;
+    public static HashMap<Subject,String> map = new HashMap<Subject,String>();
+    public static String subjectName = "";
 }

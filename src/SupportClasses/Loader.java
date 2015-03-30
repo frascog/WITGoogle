@@ -113,7 +113,7 @@ public class Loader {
 
     private void setInfoClass(String line) {
         if (line.contains("Select")) {
-            
+
         } else {
             try {
                 String[] courseInfo = line.split("\t");
@@ -132,9 +132,11 @@ public class Loader {
                 addClass(c);
             } catch (NumberFormatException e) {
                 System.out.println("FAILED TO ADD CLASS");
-            } catch (ArrayIndexOutOfBoundsException e){
-                if(line.split("\t").length == 1){
+            } catch (ArrayIndexOutOfBoundsException e) {
+                if (line.split("\t").length == 1) {
                     SubjectMap.subjectName = line;
+                } else {
+                    System.out.println("FAILED TO ADD CLASS");
                 }
             }
         }
@@ -142,16 +144,16 @@ public class Loader {
 
     private Staff findStaff(String[] staff) {
         String[] staffName;
-        if(staff.length == 3){
-           staffName = new String[2];
-           staffName[0] = staff[0];
-           staffName[1] = staff[1];
-        } else if(staff.length == 4){
-           staffName = new String[2];
-           staffName[0] = staff[0];
-           staffName[1] = staff[2];
+        if (staff.length == 3) {
+            staffName = new String[2];
+            staffName[0] = staff[0];
+            staffName[1] = staff[1];
+        } else if (staff.length == 4) {
+            staffName = new String[2];
+            staffName[0] = staff[0];
+            staffName[1] = staff[2];
         } else {
-           staffName = staff;
+            staffName = staff;
         }
         Object[] object = invertedFile.search(staffName);
         for (Object o : object) {
