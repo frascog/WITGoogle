@@ -16,7 +16,7 @@ public class Class implements SearchableObjects{
     private final int CRN;
     private Subject subject;
     private int course;
-    private int section;
+    private String section;
     private double credit;
     private String title;
     private String days;
@@ -46,11 +46,11 @@ public class Class implements SearchableObjects{
         this.course = course;
     }
 
-    public int getSection() {
+    public String getSection() {
         return section;
     }
 
-    public void setSection(int section) {
+    public void setSection(String section) {
         this.section = section;
     }
 

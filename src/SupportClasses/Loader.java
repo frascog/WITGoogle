@@ -113,7 +113,7 @@ public class Loader {
 
     private void setInfoClass(String line) {
         if (line.contains("Select")) {
-            return;
+            
         } else {
             try {
                 String[] courseInfo = line.split("\t");
@@ -125,14 +125,17 @@ public class Loader {
                 c.setCredit(Double.parseDouble(courseInfo[6]));
                 c.setDays(courseInfo[8]);
                 c.setInstructor(findStaff(courseInfo[13].toLowerCase().split(" ")));
-                c.setSection(Integer.parseInt(courseInfo[4]));
+                c.setSection(courseInfo[4]);
                 c.setSubject(Subject.valueOf(courseInfo[2]));
                 c.setTitle(courseInfo[7]);
+                SubjectMap.map.put(c.getSubject(), SubjectMap.subjectName);
                 addClass(c);
             } catch (NumberFormatException e) {
-
+                System.out.println("FAILED TO ADD CLASS");
             } catch (ArrayIndexOutOfBoundsException e){
-                
+                if(line.split("\t").length == 1){
+                    SubjectMap.subjectName = line;
+                }
             }
         }
     }

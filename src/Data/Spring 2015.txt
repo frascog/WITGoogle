@@ -1,3 +1,4 @@
+Architecture
 Select	CRN	Subj	Crse	Sec	Cmp	Cred	Title	Days	Time	Cap	Act	Rem	Instructor	Date (MM/DD)	Location	Attribute
 C	20773	ARCH	120	01	WIT	6.000	STUDIO 02	W	12:00 pm-12:50 pm	14	15	-1	Meliti Dimitra Dikeos (P)	01/07-04/22	ANXCN 014	 
  	 	 	 	 	 	 	 	F	12:00 pm-12:50 pm	 	 	 	Meliti Dimitra Dikeos (P)	01/07-04/22	ANXCN 106	 

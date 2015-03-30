@@ -10,6 +10,7 @@ package SupportClasses;
  * @author Greg
  */
 public enum Subject {
+
     ARCH,
     BIOL,
     BMED,
