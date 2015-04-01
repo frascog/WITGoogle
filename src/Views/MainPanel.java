@@ -177,9 +177,9 @@ public class MainPanel extends javax.swing.JPanel {
         new Loader(invertedFile);
         this.jPanel2.setLayout(new BoxLayout(this.jPanel2, BoxLayout.Y_AXIS));
         this.jLabel2.setText("");
-//        for (int i = 0; i < invertedFile.size(); i++) {
-//            System.out.println(invertedFile.get(i));
-//        }
+        for (int i = 0; i < invertedFile.size(); i++) {
+            System.out.println(invertedFile.get(i));
+        }
     }
 
     private void search() {

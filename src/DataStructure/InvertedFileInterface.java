@@ -17,7 +17,6 @@ public interface InvertedFileInterface<D,W> {
     public boolean isEmpty();
     public boolean containsWord(W word);
     public boolean contains(D document,W word);
-    public D[] search(W word);
     public D[] search(W[] words);
     public int size();
     

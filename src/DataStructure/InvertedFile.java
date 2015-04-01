@@ -5,8 +5,6 @@
  */
 package DataStructure;
 
-import SupportClasses.SearchableObjects;
-
 /**
  *
  * @author Greg
@@ -14,7 +12,7 @@ import SupportClasses.SearchableObjects;
 public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     private long searchTime;
-    private static final int DEFUALT_INITIAL_CAPACITY = 1000;
+    private static final int DEFUALT_INITIAL_CAPACITY = 10000;
     private static final int MAXIMUM_CAPACITY = 20000;
     private int size = 0;
     private Entry[] entries;
@@ -76,22 +74,17 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
         return this.entries[index].contains(document);
     }
 
-    @Override
-    public D[] search(W word) {
-        long startTime = System.currentTimeMillis();
-        if (this.containsWord(word)) {         
-            int index = this.getIndex(word);
-            long endTime = System.currentTimeMillis();
-            searchTime += (endTime - startTime);
+    private D[] search(W word) { 
+        int index = this.getIndex(word);
+        if (index != -1) {         
             return (D[]) this.entries[index].getDocuments();
         }
-        long endTime = System.currentTimeMillis();
-        searchTime += (endTime - startTime);
         return null;
     }
 
     @Override
     public D[] search(W[] words) {
+        long startTime = System.currentTimeMillis();
         D[] aDocs = (D[]) new Object[0];
         D[] cDocs = (D[]) new Object[0];
         for (W word : words) {
@@ -102,6 +95,8 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
                 System.arraycopy(bDocs, 0, cDocs, aDocs.length, bDocs.length);
             }
         }
+        long endTime = System.currentTimeMillis();
+        searchTime += (endTime - startTime);
         return cDocs;
     }
 

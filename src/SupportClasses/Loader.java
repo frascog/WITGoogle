@@ -130,6 +130,10 @@ public class Loader {
                 c.setTitle(courseInfo[7]);
                 SubjectMap.map.put(c.getSubject(), SubjectMap.subjectName);
                 addClass(c);
+                invertedFile.add(c.getInstructor(), c.getTitle().toLowerCase());
+                invertedFile.add(c.getInstructor(), c.getSubject().toString().toLowerCase());
+                invertedFile.add(c.getInstructor(), c.getCourse());
+                invertedFile.add(c.getInstructor(), c.getSection());
             } catch (NumberFormatException e) {
                 System.out.println("FAILED TO ADD CLASS");
             } catch (ArrayIndexOutOfBoundsException e) {
@@ -174,6 +178,8 @@ public class Loader {
         invertedFile.add(c, c.getCredit());
         add(c, c.getDays().toLowerCase().split(""));
         invertedFile.add(c, c.getInstructor());
+        invertedFile.add(c, c.getInstructor().getFirstName().toLowerCase());
+        invertedFile.add(c, c.getInstructor().getLastName().toLowerCase());
         invertedFile.add(c, c.getSection());
         add(c, c.getSubject().toString().toLowerCase().split(" "));
         add(c, c.getTitle().toString().toLowerCase().split(" "));
