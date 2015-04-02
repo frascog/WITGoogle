@@ -24,6 +24,7 @@ public class Class implements SearchableObjects{
     private int act;
     private Staff instructor;
     private String building;
+    private String time;
     private ClassView view;
 
     public Class(int CRN) {
@@ -117,6 +118,14 @@ public class Class implements SearchableObjects{
     @Override
     public String toString() {
         return subject + " " + course + " " + section + " " + title;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public ClassView getView() {

@@ -28,6 +28,7 @@ public class WIToogle extends Applet {
             }
         });  
         jFrame.add(new MainPanel());
+        jFrame.setLocation(200, 200);
         jFrame.pack();
         jFrame.setVisible(true);
     }

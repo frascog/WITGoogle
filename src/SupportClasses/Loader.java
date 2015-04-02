@@ -117,23 +117,44 @@ public class Loader {
         } else {
             try {
                 String[] courseInfo = line.split("\t");
-                Class c = new Class(Integer.parseInt(courseInfo[1]));
-                c.setAct(Integer.parseInt(courseInfo[11]));
-                c.setBuilding(courseInfo[15]);
-                c.setCap(Integer.parseInt(courseInfo[10]));
-                c.setCourse(Integer.parseInt(courseInfo[3]));
-                c.setCredit(Double.parseDouble(courseInfo[6]));
-                c.setDays(courseInfo[8]);
-                c.setInstructor(findStaff(courseInfo[13].toLowerCase().split(" ")));
-                c.setSection(courseInfo[4]);
-                c.setSubject(Subject.valueOf(courseInfo[2]));
-                c.setTitle(courseInfo[7]);
-                SubjectMap.map.put(c.getSubject(), SubjectMap.subjectName);
-                addClass(c);
-                invertedFile.add(c.getInstructor(), c.getTitle().toLowerCase());
-                invertedFile.add(c.getInstructor(), c.getSubject().toString().toLowerCase());
-                invertedFile.add(c.getInstructor(), c.getCourse());
-                invertedFile.add(c.getInstructor(), c.getSection());
+                Class c = null;
+                if (courseInfo.length == 16) {
+                    c = new Class(Integer.parseInt(courseInfo[0]));
+                    c.setAct(Integer.parseInt(courseInfo[10]));
+                    c.setBuilding(courseInfo[14]);
+                    c.setCap(Integer.parseInt(courseInfo[9]));
+                    c.setCourse(Integer.parseInt(courseInfo[2]));
+                    c.setCredit(Double.parseDouble(courseInfo[5]));
+                    c.setDays(courseInfo[7]);
+                    c.setInstructor(findStaff(courseInfo[12].toLowerCase().split(" ")));
+                    c.setSection(courseInfo[3]);
+                    c.setSubject(Subject.valueOf(courseInfo[1]));
+                    c.setTitle(courseInfo[6]);
+                    c.setTime(courseInfo[8]);
+                    
+                } else {
+                    c = new Class(Integer.parseInt(courseInfo[1]));
+                    c.setAct(Integer.parseInt(courseInfo[11]));
+                    c.setBuilding(courseInfo[15]);
+                    c.setCap(Integer.parseInt(courseInfo[10]));
+                    c.setCourse(Integer.parseInt(courseInfo[3]));
+                    c.setCredit(Double.parseDouble(courseInfo[6]));
+                    c.setDays(courseInfo[8]);
+                    c.setInstructor(findStaff(courseInfo[13].toLowerCase().split(" ")));
+                    c.setSection(courseInfo[4]);
+                    c.setSubject(Subject.valueOf(courseInfo[2]));
+                    c.setTitle(courseInfo[7]);
+                    c.setTime(courseInfo[9]);
+                }
+                    SubjectMap.map.put(c.getSubject(), SubjectMap.subjectName);
+                    addClass(c);
+                    add(c.getInstructor(), c.getTitle().toLowerCase().split(" "));
+                    invertedFile.add(c.getInstructor(), c.getSubject().toString().toLowerCase());
+                    invertedFile.add(c.getInstructor(), c.getCourse());
+                    invertedFile.add(c.getInstructor(), Integer.parseInt(c.getSection())+"");
+                    invertedFile.add(c.getInstructor(),"teacher");
+                    invertedFile.add(c.getInstructor(),"teaches");
+                    invertedFile.add(c.getInstructor(),"teach");
             } catch (NumberFormatException e) {
                 System.out.println("FAILED TO ADD CLASS");
             } catch (ArrayIndexOutOfBoundsException e) {
@@ -181,6 +202,8 @@ public class Loader {
         invertedFile.add(c, c.getInstructor().getFirstName().toLowerCase());
         invertedFile.add(c, c.getInstructor().getLastName().toLowerCase());
         invertedFile.add(c, c.getSection());
+        invertedFile.add(c, SubjectMap.map.get(c.getSection()));
+        add(c, c.getTime().toLowerCase().split(":"));
         add(c, c.getSubject().toString().toLowerCase().split(" "));
         add(c, c.getTitle().toString().toLowerCase().split(" "));
     }
