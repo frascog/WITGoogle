@@ -12,7 +12,7 @@ package DataStructure;
 public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
 
     private long searchTime;
-    private static final int DEFUALT_INITIAL_CAPACITY = 10000;
+    private static final int DEFUALT_INITIAL_CAPACITY = 5000;
     private static final int MAXIMUM_CAPACITY = 20000;
     private int size = 0;
     private Entry[] entries;

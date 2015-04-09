@@ -23,7 +23,7 @@ public class Loader {
         this.invertedFile = invertedFile;
         BufferedReader br = null;
         try {
-            br = new BufferedReader(new FileReader("src/Data/Data.txt"));
+            br = new BufferedReader(new FileReader("src/Data/Faculty.txt"));
             String line = br.readLine();
             while (line != null) {
                 setInfoStaff(removeExtraWhiteSpace(line));
@@ -156,7 +156,7 @@ public class Loader {
                     invertedFile.add(c.getInstructor(),"teaches");
                     invertedFile.add(c.getInstructor(),"teach");
             } catch (NumberFormatException e) {
-                System.out.println("FAILED TO ADD CLASS");
+                
             } catch (ArrayIndexOutOfBoundsException e) {
                 if (line.split("\t").length == 1) {
                     SubjectMap.subjectName = line;
@@ -187,7 +187,10 @@ public class Loader {
                 return s;
             }
         }
-        return new Staff(staff[0], staff[1]);
+        Staff s = new Staff(staff[0], staff[1]);
+        this.invertedFile.add(s, staff[0]);
+        this.invertedFile.add(s, staff[1]);
+        return s ;
     }
 
     private void addClass(Class c) {

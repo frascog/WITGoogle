@@ -5,8 +5,10 @@
  */
 package wit.oogle;
 
-import Views.MainPanel;
+import Views.HomePage;
 import java.applet.Applet;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -27,8 +29,9 @@ public class WIToogle extends Applet {
                 System.exit(0);
             }
         });  
-        jFrame.add(new MainPanel());
-        jFrame.setLocation(200, 200);
+        jFrame.add(new HomePage(jFrame));
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        jFrame.setLocation(dim.width/2-600, dim.height/2-350-50);
         jFrame.pack();
         jFrame.setVisible(true);
     }

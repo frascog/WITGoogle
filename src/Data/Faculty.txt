@@ -230,4 +230,54 @@ Rachel Lash-Maitra
     OfficeNumber 313
     Phone 617 989 4792
     Email maitrar@wit.edu
+Mark Mixer
+    Title Assistant Professor
+    Deparment Applied Mathematics
+    Degree PhD Mathematics Northeastern University
+    Degree MA Mathematics Northeastern University
+    Degree BA Mathematics Dartmouth College
+    OfficeLocation Ira Allen
+    OfficeNumber 310
+    Phone 617 989 4394
+    Email mixerm@wit.edu
+Steven Morrow
+    Title Assistant Professor
+    Deparment Applied Mathematics
+    Degree PhD Mathematics Indiana University
+    Degree MA Mathematics Wayne State University
+    Degree BS Mechanical Engineering University of Rochester
+    OfficeLocation Ira Allen
+    OfficeNumber 113
+    Phone 617 989 4645
+    Email morrows@wit.edu
+Reinaldo Sanchez-Arias
+    Title Assistant Professor
+    Deparment Applied Mathematics
+    Degree PhD Computational Science University of Texas at El Paso
+    Degree MS Computational Science, University of Texas at El Paso
+    Degree BS Mathematics Universidad del Valle Cali Valle Colombia
+    OfficeLocation Ira Allen
+    OfficeNumber 113
+    Phone 617 989 4649
+    Email sanchezariasr@wit.edu
+Gary Simundza
+    Title Professor
+    Deparment Applied Mathematics
+    Degree MS Biophysics University of Rochester
+    Degree BS Physics Rensselaer Polytechnic Institute
+    OfficeLocation Ira Allen
+    OfficeNumber 305
+    Phone 617 989 4354
+    Email simundzag@wit.edu
+Emma Smith-Zbarsky
+    Title Assistant Professor
+    Deparment Applied Mathematics
+    Degree PhD Mathematics University of Chicago
+    Degree MS Mathematics University of Chicago
+    Degree MS Applied Mathematics University of Washington
+    Degree SB Mathematics Massachusetts Institute of Technology
+    OfficeLocation Ira Allen
+    OfficeNumber 311
+    Phone 617 989 4425
+    Email smithzbarskye@wit.edu
 Name Here
