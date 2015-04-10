@@ -5,7 +5,7 @@
  */
 package Views;
 
-import SupportClasses.Staff;
+import Model.Staff;
 
 /**
  *
@@ -98,7 +98,7 @@ public class StaffView extends javax.swing.JPanel {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

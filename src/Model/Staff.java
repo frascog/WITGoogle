@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SupportClasses;
+package Model;
 
 import Views.StaffView;
 import java.util.ArrayList;

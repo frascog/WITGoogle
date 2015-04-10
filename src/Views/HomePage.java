@@ -7,7 +7,7 @@ package Views;
 
 import DataStructure.InvertedFile;
 import SupportClasses.Loader;
-import SupportClasses.SearchableObjects;
+import Model.SearchableObjects;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 

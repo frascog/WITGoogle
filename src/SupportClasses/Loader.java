@@ -5,6 +5,9 @@
  */
 package SupportClasses;
 
+import Model.SearchableObjects;
+import Model.Class;
+import Model.Staff;
 import DataStructure.InvertedFile;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -37,14 +40,24 @@ public class Loader {
             br = new BufferedReader(new FileReader("src/Data/Spring 2015.txt"));
             String line = br.readLine();
             while (line != null) {
-                setInfoClass(removeExtraWhiteSpace(line));
+                setInfoClass(removeExtraWhiteSpace(line),"Spring 2015");
                 line = br.readLine();
             }
             br.close();
         } catch (IOException ex) {
             System.exit(-1);
         }
-
+        try {
+            br = new BufferedReader(new FileReader("src/Data/Summer 2015.txt"));
+            String line = br.readLine();
+            while (line != null) {
+                setInfoClass(removeExtraWhiteSpace(line),"Summer 2015");
+                line = br.readLine();
+            }
+            br.close();
+        } catch (IOException ex) {
+            System.exit(-1);
+        }
     }
 
     private void setInfoStaff(String line) {
@@ -111,7 +124,7 @@ public class Loader {
         return string;
     }
 
-    private void setInfoClass(String line) {
+    private void setInfoClass(String line,String semester) {
         if (line.contains("Select")) {
 
         } else {
@@ -146,6 +159,7 @@ public class Loader {
                     c.setTitle(courseInfo[7]);
                     c.setTime(courseInfo[9]);
                 }
+                    c.setSemester(semester);
                     SubjectMap.map.put(c.getSubject(), SubjectMap.subjectName);
                     addClass(c);
                     add(c.getInstructor(), c.getTitle().toLowerCase().split(" "));
@@ -205,6 +219,7 @@ public class Loader {
         invertedFile.add(c, c.getInstructor().getFirstName().toLowerCase());
         invertedFile.add(c, c.getInstructor().getLastName().toLowerCase());
         invertedFile.add(c, c.getSection());
+        invertedFile.add(c, c.getSemester());
         invertedFile.add(c, SubjectMap.map.get(c.getSection()));
         add(c, c.getTime().toLowerCase().split(":"));
         add(c, c.getSubject().toString().toLowerCase().split(" "));

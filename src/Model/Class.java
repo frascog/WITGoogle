@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SupportClasses;
+package Model;
 
+import SupportClasses.Subject;
 import Views.ClassView;
 
 /**
@@ -26,6 +27,7 @@ public class Class implements SearchableObjects{
     private String building;
     private String time;
     private ClassView view;
+    private String semester;
 
     public Class(int CRN) {
         this.CRN = CRN;
@@ -134,6 +136,13 @@ public class Class implements SearchableObjects{
         }
         return view;
     }
-    
-    
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
 }
