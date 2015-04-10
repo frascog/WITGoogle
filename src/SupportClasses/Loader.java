@@ -58,6 +58,17 @@ public class Loader {
         } catch (IOException ex) {
             System.exit(-1);
         }
+        try {
+            br = new BufferedReader(new FileReader("src/Data/Fall 2015.txt"));
+            String line = br.readLine();
+            while (line != null) {
+                setInfoClass(removeExtraWhiteSpace(line),"Fall 2015");
+                line = br.readLine();
+            }
+            br.close();
+        } catch (IOException ex) {
+            System.exit(-1);
+        }
     }
 
     private void setInfoStaff(String line) {
