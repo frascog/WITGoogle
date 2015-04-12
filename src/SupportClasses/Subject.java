@@ -60,4 +60,5 @@ public enum Subject {
     POLS,
     TPRC,
     TMGT,
+    ETHS,
 }

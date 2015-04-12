@@ -96,7 +96,7 @@ public class InvertedFile<D, W> implements InvertedFileInterface<D, W> {
             }
         }
         long endTime = System.currentTimeMillis();
-        searchTime += (endTime - startTime);
+        searchTime = endTime - startTime;
         return cDocs;
     }
 

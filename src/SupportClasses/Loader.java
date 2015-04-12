@@ -185,8 +185,6 @@ public class Loader {
             } catch (ArrayIndexOutOfBoundsException e) {
                 if (line.split("\t").length == 1) {
                     SubjectMap.subjectName = line;
-                } else {
-                    System.out.println("FAILED TO ADD CLASS");
                 }
             }
         }
@@ -212,9 +210,10 @@ public class Loader {
                 return s;
             }
         }
-        Staff s = new Staff(staff[0], staff[1]);
+        Staff s = new Staff(toTitleCase(staff[0]), toTitleCase(staff[1]));
         this.invertedFile.add(s, staff[0]);
         this.invertedFile.add(s, staff[1]);
+        s.setTitle("Adjunct");
         return s ;
     }
 
@@ -236,4 +235,15 @@ public class Loader {
         add(c, c.getSubject().toString().toLowerCase().split(" "));
         add(c, c.getTitle().toString().toLowerCase().split(" "));
     }
+    
+    public static String toTitleCase(String givenString) {
+    String[] arr = givenString.split(" ");
+    StringBuffer sb = new StringBuffer();
+
+    for (int i = 0; i < arr.length; i++) {
+        sb.append(Character.toUpperCase(arr[i].charAt(0)))
+            .append(arr[i].substring(1)).append(" ");
+    }          
+    return sb.toString().trim();
+}  
 }
