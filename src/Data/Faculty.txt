@@ -280,4 +280,90 @@ Emma Smith-Zbarsky
     OfficeNumber 311
     Phone 617 989 4425
     Email smithzbarskye@wit.edu
-Name Here
+Charles Hotchkiss
+    Title Dean of College of Architecture Design and Construction Management
+    Deparment Architecture Design
+    Degree PhD Cornell University
+    Degree MRP Cornell University
+    Degree BA Bates College
+    OfficeLocation Annex
+    OfficeNumber
+    Phone 617 989 4831
+    Email hotchkissc@wit.edu
+Michael MacPhail
+    Title Dean of College of Architecture Design and Construction Management
+    Deparment Architecture Design
+    Degree MArch SCI-Arc
+    Degree BArch University of British Columbia
+    Degree BA University of British Columbia
+    Degree Registered Architect NCARB Certification
+    OfficeLocation Annex
+    OfficeNumber
+    Phone 617 989 4455
+    Email macphailm@wit.edu
+Rolf Backmann
+    Title Associate Professor Director Study Abroad
+    Deparment Architecture Design
+    Degree MS Arch and Urban Design Columbia University
+    Degree Dipl-Ing.Architekt Technische Universität Berlin
+    Degree Registered Architect Berlin Chamber of Architects
+    Degree BArch University of British Columbia
+    OfficeLocation Annex
+    OfficeNumber
+    Email backmannr@wit.edu
+Ann Borst
+    Title Professor
+    Deparment Architecture Design
+    Degree MArch University of California Berkeley
+    Degree BA Williams College
+    Degree Registered Architect NCARB Certification
+    OfficeLocation Annex
+    OfficeNumber
+    617 989 4430
+    Email borsta@wit.edu
+Carol Burns
+    Title Associate Professor Director of Research
+    Deparment Architecture Design
+    Degree MArch Yale University
+    Degree BA Yale University
+    Degree Registered Architect NCARB Certification
+    Degree LEED Accredited Professional
+    OfficeLocation Annex
+    OfficeNumber
+    617 989 4538
+    Email burnsc1@wit.edu
+Charles Cimino
+    Title Associate Professor
+    Deparment Architecture Design
+    Degree MBA Suffolk University
+    Degree BS Wentworth Institute of Technology WIT
+    Degree Registered Architect NCARB Certification
+    OfficeLocation Annex
+    OfficeNumber
+    617 989 4467
+    Email ciminoc@wit.edu
+Robert Cowherd
+    Title Associate Professor
+    Deparment Architecture Design
+    Degree PhD Massachusetts Institute of Technology
+    Degree UDC Massachusetts Institute of Technology
+    Degree BArch The Cooper Union
+    OfficeLocation Annex
+    OfficeNumber
+    617 989 4453
+    Email cowherdr@wit.edu
+Manuel Delgado
+    Title Associate Professor
+    Deparment Architecture Design
+    Degree MS Urban Stud Massachusetts Institute of Tech.
+    Degree UDC Massachusetts Institute of Technology
+    Degree BArch Universidad Central de Venezuela
+    Degree Registered Architect 
+    OfficeLocation Annex
+    OfficeNumber
+    617 989 4491
+    Email delgadom@wit.edu
+John Ellis
+    
+
+
